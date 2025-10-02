@@ -2,7 +2,7 @@
 
 const { v4: uuidv4 } = require('uuid');
 let products = require('../models/productModel');
-const ApiError = require('../utils/ApiError');
+const ApiError = require('../utils/errors');
 
 // GET all with optional filtering + pagination
 exports.getProducts = (req, res) => {

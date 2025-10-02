@@ -81,37 +81,26 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
-
-// Load environment variables
-dotenv.config();
-
 const productRoutes = require('./routes/productRoutes');
 const logger = require('./middleware/logger');
-const auth = require('./middleware/auth');
 const errorHandler = require('./middleware/errorHandler');
+
+dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Middleware
-app.use(bodyParser.json()); // Parse JSON request bodies
-app.use(logger); // Custom logger for all requests
-app.use(auth); // Authentication middleware
+app.use(bodyParser.json());
+app.use(logger);
 
 // Routes
 app.use('/api/products', productRoutes);
 
-// Root route
-app.get('/', (req, res) => {
-  res.send('✅ Welcome to the Product API! Go to /api/products to interact.');
-});
-
-// Global error handler
+// Error Handler
 app.use(errorHandler);
 
-// Start server
+// Start Server
 app.listen(PORT, () => {
   console.log(`🚀 Server running at http://localhost:${PORT}`);
 });
-
-module.exports = app;

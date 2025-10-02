@@ -1,30 +1,20 @@
-// models/productModel.js – Fake database (in-memory)
-
-let products = [
+const products = [
   {
     id: '1',
     name: 'Laptop',
-    description: 'High-performance laptop with 16GB RAM',
+    description: 'A fast laptop',
     price: 1200,
-    category: 'electronics',
+    category: 'Electronics',
     inStock: true,
   },
   {
     id: '2',
-    name: 'Smartphone',
-    description: 'Latest model with 128GB storage',
-    price: 800,
-    category: 'electronics',
+    name: 'Headphones',
+    description: 'Noise-cancelling headphones',
+    price: 200,
+    category: 'Electronics',
     inStock: true,
-  },
-  {
-    id: '3',
-    name: 'Coffee Maker',
-    description: 'Programmable coffee maker with timer',
-    price: 50,
-    category: 'kitchen',
-    inStock: false,
   },
 ];
 
-module.exports = products;
+module.exports = { products };
